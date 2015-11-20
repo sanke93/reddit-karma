@@ -1,0 +1,36 @@
+
+
+
+<div class="row">
+    <div class="col-xs-6">
+        <button ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Connect Twitter</button>
+        <button ng-click="refreshTimeline()" id="getTimelineButton" type="button" class="btn btn-info" style="display:none;">Get My Timeline</button>
+        <button ng-click="signOut()" id="signOut" type="button" class="btn btn-link" style="display:none;">Sign Out</button>
+    </div>
+
+</div>
+</br>
+<form class="form-inline">
+<input type="text" class="form-control" ng-model="subreddit" id="exampleInputAmount" placeholder="Subreddit">
+<button class="btn btn-default" type="submit" ng-click="buttonClicked()">Submit</button>
+</form>
+</br>
+
+<div class="row">
+	 <div ng-repeat="t in tweets |limitTo:3">
+	 	
+	 	<br>
+	 	<div class="col-xs-2 col-sm-1">
+	 	</br>
+                <img ng-src="{{t.user.profile_image_url}}" class="img-circle">
+        </div>
+        <div class="col-xs-10 col-sm-11">
+            
+            <h3>{{t.text}}</h3>
+            <h5 class="text-primary">https://twitter.com/statuses/{{t.id_str}}</h5>
+            <small>Posted by {{t.user.name}} on {{t.created_at}}</small>
+            
+        </div>
+	 </div>
+</div>
+
